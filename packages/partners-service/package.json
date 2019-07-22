@@ -1,0 +1,16 @@
+{
+    "name": "@node-backend/partners-service",
+    "version": "1.0.0",
+    "license": "MIT",
+    "scripts": {
+        "start": "nodemon --watch 'app/**/*' -e ts --exec 'ts-node' app/server.ts"
+    },
+    "dependencies": {
+        "koa": "^2.7.0"
+    },
+    "devDependencies": {
+        "@types/koa": "^2.0.49",
+        "nodemon": "^1.19.1",
+        "ts-node": "^8.3.0"
+    }
+}

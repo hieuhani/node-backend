@@ -2,6 +2,9 @@
     "name": "@node-backend/database",
     "version": "1.0.0",
     "license": "MIT",
+    "scripts": {
+        "knex": "knex"
+    },
     "dependencies": {
         "knex": "^0.19.0",
         "objection": "^1.6.9",

@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "license": "MIT",
     "scripts": {
-        "knex": "knex"
+        "db": "ts-node ./scripts/db.ts"
     },
     "dependencies": {
         "knex": "^0.19.0",

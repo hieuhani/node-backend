@@ -1,4 +1,6 @@
 import Knex, { Config as KnexConfig } from 'knex';
+import { knexSnakeCaseMappers } from 'objection';
+
 import { retry } from 'async';
 
 export class Database {
@@ -25,7 +27,7 @@ export class Database {
   }
 
   getConfig() {
-    return this.config;
+    return Object.assign(this.config, knexSnakeCaseMappers());
   }
 
   async createConnection() {

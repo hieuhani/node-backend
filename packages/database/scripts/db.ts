@@ -1,11 +1,11 @@
-import { Database } from '../database';
+import { Database } from '../src/database';
 import fs from 'fs';
 import task from './task';
 import { yyyymmddhhmmss } from './utils';
 
 const db = new Database({
   connection: 'postgresql://hieu:password@localhost:5432/node_backend_dev',
-  client: 'pg',
+  client: 'postgres',
 }).instance();
 
 const command = process.argv[2];

@@ -13,5 +13,26 @@ describe('User class', () => {
     })
     expect(hieu).not.toBeNull();
     expect(hieu).toBeInstanceOf(User);
+  });
+
+  describe('user with password', () => {
+    let user: User;
+    beforeAll(async () => {
+      user = await User.query().insert({
+        username: 'userwithpassword',
+        firstName: 'Hieu',
+        lastName: 'Tran',
+        password: 'password',
+      })
+    })
+
+    test('password should be hashed and diffirent with plain password', () => {
+      expect(user.password).not.toEqual('password');
+    });
+
+    test('verify password', async () => {
+      expect(await user.verifyPassword('password')).toBeTruthy();
+      expect(await user.verifyPassword('wrong password')).toBeFalsy();
+    })
   })
 });

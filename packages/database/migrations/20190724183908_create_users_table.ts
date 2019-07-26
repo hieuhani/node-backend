@@ -7,7 +7,7 @@ export async function up(knex: Knex): Promise<any> {
       table.string('username').unique();
       table.string('first_name');
       table.string('last_name').nullable();
-      table.string('password_hash', 128);
+      table.string('password', 128);
       table.timestamps(true, true);
     });
 }

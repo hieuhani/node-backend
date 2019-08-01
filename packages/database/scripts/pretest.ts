@@ -1,9 +1,4 @@
-import { Database } from '../src/database';
-
-export const database = new Database({
-  client: 'pg',
-  connection: 'postgresql://hieu:password@localhost:5432/node_backend_test',
-})
+import { database } from '../src/database';
 
 export async function clearDatabase() {
   const conn = await database.getConnection();
@@ -14,3 +9,13 @@ export async function migrateDatabase() {
   const conn = await database.createConnection();
   return conn.migrate.latest();
 }
+
+const globalSetup = async () => {
+  console.log('Clear up existing database');
+  await clearDatabase();
+  console.log('Migrate database');
+  await migrateDatabase();
+  process.exit(0);
+};
+
+globalSetup();

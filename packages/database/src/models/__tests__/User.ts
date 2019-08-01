@@ -1,5 +1,5 @@
 import { Model } from 'objection';
-import { database } from '../../../test-utils/database';
+import { database } from '../../database';
 import { User } from '../User';
 
 Model.knex(database.instance());

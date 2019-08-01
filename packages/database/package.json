@@ -2,9 +2,11 @@
     "name": "@node-backend/database",
     "version": "1.0.0",
     "license": "MIT",
+    "main": "dist/index.js",
     "scripts": {
+        "compile": "tsc -b",
         "db": "ts-node ./scripts/db.ts",
-        "pretest": "ts-node ./test-utils/pretest.ts",
+        "pretest": "ts-node ./scripts/pretest.ts",
         "test": "jest"
     },
     "dependencies": {

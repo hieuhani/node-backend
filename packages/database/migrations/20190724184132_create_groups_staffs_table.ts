@@ -3,7 +3,7 @@ import * as Knex from 'knex';
 
 export async function up(knex: Knex): Promise<any> {
   return knex.schema
-    .createTable('groups_users', function (table) {
+    .createTable('groups_staffs', function (table) {
       table.uuid('id')
         .notNullable()
         .defaultTo(knex.raw('gen_random_uuid()'))
@@ -14,14 +14,14 @@ export async function up(knex: Knex): Promise<any> {
         .inTable('groups')
         .onDelete('CASCADE')
         .onUpdate('CASCADE');
-      table.uuid('user_id')
+      table.uuid('staff_id')
         .notNullable()
         .references('id')
-        .inTable('users')
+        .inTable('staffs')
         .onDelete('CASCADE')
         .onUpdate('CASCADE');
       table.timestamps(true, true);
-      table.index(['user_id', 'group_id']);
+      table.index(['staff_id', 'group_id']);
     });
 }
 

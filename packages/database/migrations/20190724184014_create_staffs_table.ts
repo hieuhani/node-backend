@@ -8,6 +8,12 @@ export async function up(knex: Knex): Promise<any> {
         .notNullable()
         .defaultTo(knex.raw('gen_random_uuid()'))
         .primary();
+      table.uuid('partner_id')
+        .notNullable()
+        .references('id')
+        .inTable('partners')
+        .onDelete('CASCADE')
+        .onUpdate('CASCADE');
       table.uuid('user_id')
         .notNullable()
         .references('id')

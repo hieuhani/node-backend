@@ -1,5 +1,5 @@
 {
-    "name": "@node-backend/admin-service",
+    "name": "@node-backend/service-admin",
     "version": "1.0.0",
     "license": "MIT"
 }

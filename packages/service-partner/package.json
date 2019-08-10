@@ -1,5 +1,5 @@
 {
-    "name": "@node-backend/partners-service",
+    "name": "@node-backend/service-partner",
     "version": "1.0.0",
     "license": "MIT",
     "scripts": {

@@ -5,6 +5,7 @@ import {
   partnerTypes,
 } from '@node-backend/modules'
 import adminPartnerTypes from './modules/partner/types'
+import adminUserTypes from './modules/user/types'
 
 const rootType = `
 scalar Date
@@ -15,7 +16,8 @@ type Query {
 type Mutation {
   auth: AuthMutation
   user: UserMutation
-  partner: AdminPartnerMutation
+  adminPartner: AdminPartnerMutation
+  adminUser: AdminUserMutation
 }
 `
 
@@ -25,4 +27,5 @@ export default mergeTypes([
   userTypes,
   partnerTypes,
   adminPartnerTypes,
+  adminUserTypes,
 ])

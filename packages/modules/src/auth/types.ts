@@ -1,19 +1,14 @@
 export default `
-type AccessToken {
-  token: String!
-  expiresAt: Int!
-}
-
 type SignInResponse {
-  accessToken: AccessToken
+  accessToken: String
 }
 
-input SignInPayload {
+input SignInInput {
   login: String!
   password: String!
 }
 
 type AuthMutation {
-  signIn(payload: SignInPayload!) : SignInResponse
+  signIn(input: SignInInput!) : SignInResponse
 }
 `

@@ -8,4 +8,9 @@ type Staff {
   partner: Partner
   groupStaffs: [GroupStaff]
 }
+
+type StaffQuery {
+  """Working partners information and staff details"""
+  iAmStaffs: [Staff]
+}
 `

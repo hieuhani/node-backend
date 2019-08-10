@@ -6,7 +6,7 @@ type User {
   lastName: String
 }
 
-input UpdateUserPayload {
+input UserInput {
   firstName: String
   lastName: String
   password: String
@@ -15,11 +15,9 @@ input UpdateUserPayload {
 type UserQuery {
   """My profile details"""
   me: User
-  """Working partners information and staff details"""
-  staffs: [Staff]
 }
 
 type UserMutation {
-  update(payload: UpdateUserPayload!): User
+  update(input: UserInput!): User
 }
 `

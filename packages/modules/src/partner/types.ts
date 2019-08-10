@@ -4,4 +4,9 @@ type Partner {
   name: String
   website: String!
 }
+
+input PartnerInput {
+  name: String!
+  website: String
+}
 `

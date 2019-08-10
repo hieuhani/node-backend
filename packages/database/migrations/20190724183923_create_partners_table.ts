@@ -5,6 +5,7 @@ export async function up(knex: Knex): Promise<any> {
   return knex.schema
     .createTable('partners', function (table) {
       table.uuid('id').notNullable().defaultTo(knex.raw('gen_random_uuid()')).primary();
+      table.string('slug').unique();
       table.string('name');
       table.string('website').nullable();
       table.timestamps(true, true);

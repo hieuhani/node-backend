@@ -3,31 +3,19 @@ import {
   authTypes,
   userTypes,
   partnerTypes,
-  groupTypes,
-  staffTypes,
 } from '@node-backend/modules'
+import adminPartnerTypes from './modules/partner/types'
 
 const rootType = `
 scalar Date
 type Query {
   user: UserQuery
-  staff: StaffQuery
-}
-
-input GroupInput {
-  name: String!
-}
-
-type GroupMutation {
-  create(input: GroupInput): Group
-  update(id: ID!, input: GroupInput): Group
-  delete(id: ID!): Group
 }
 
 type Mutation {
   auth: AuthMutation
   user: UserMutation
-  group: GroupMutation
+  partner: AdminPartnerMutation
 }
 `
 
@@ -36,6 +24,5 @@ export default mergeTypes([
   authTypes,
   userTypes,
   partnerTypes,
-  groupTypes,
-  staffTypes,
+  adminPartnerTypes,
 ])

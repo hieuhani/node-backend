@@ -1,13 +1,19 @@
+import { User } from '@node-backend/database'
+
 export default {
   Mutation: {
     adminUser: () => ({
-      create({ input }) {
-        console.log(input)
-        return {
-          username: 'Hieu',
-          firstName: 'Tran',
-          lastName: 'Duc'
+      async create({ input }) {
+        const checkingUser = await User
+          .query()
+          .where('username', input.username.toLowerCase())
+          .first()
+        if (checkingUser) {
+          throw new Error('This username is existing')
         }
+        return await User.query().insert(Object.assign({}, input, {
+          username: input.username.toLowerCase(),
+        }))
       },
     }),
   },

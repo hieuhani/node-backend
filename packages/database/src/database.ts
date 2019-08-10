@@ -1,5 +1,5 @@
 import Knex, { Config as KnexConfig } from 'knex';
-import { knexSnakeCaseMappers } from 'objection';
+import { knexSnakeCaseMappers, Model } from 'objection';
 
 import { retry } from 'async';
 
@@ -38,6 +38,10 @@ export class Database {
 
   instance() {
     return Knex(this.getConfig());
+  }
+
+  bindObjection() {
+    Model.knex(this.instance());
   }
 
   retryDbConnection() {

@@ -8,7 +8,8 @@ export async function up(knex: Knex): Promise<any> {
         .notNullable()
         .defaultTo(knex.raw('gen_random_uuid()'))
         .primary();
-      table.string('name');
+      table.string('name')
+      table.boolean('protected').defaultTo(false)
       table.uuid('partner_id')
         .notNullable()
         .references('id')

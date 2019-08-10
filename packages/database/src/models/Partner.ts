@@ -1,5 +1,6 @@
-import { Model, RelationMappings } from 'objection';
-import { Group } from './Group';
+import { Model, RelationMappings } from 'objection'
+import { Group } from './Group'
+import { Staff } from './Staff'
 
 export class Partner extends Model {
   readonly id!: string;
@@ -22,10 +23,18 @@ export class Partner extends Model {
   static relationMappings: RelationMappings = {
     groups: {
       relation: Model.HasManyRelation,
-      modelClass: 'Group',
+      modelClass: Group,
       join: {
         from: 'partners.id',
         to: 'groups.partnerId',
+      },
+    },
+    staffs: {
+      relation: Model.HasManyRelation,
+      modelClass: Staff,
+      join: {
+        from: 'partners.id',
+        to: 'staffs.partnerId',
       },
     },
   }

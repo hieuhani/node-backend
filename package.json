@@ -11,7 +11,9 @@
   ],
   "private": true,
   "scripts": {
-    "dev:partner": "yarn workspace @node-backend/service-partner compile && concurrently --kill-others \"yarn workspace @node-backend/service-partner compile -w\" \"yarn workspace @node-backend/service-partner start\""
+    "dev": "yarn workspace @node-backend/service-partner compile && concurrently --kill-others \"yarn workspace @node-backend/service-partner compile -w\" \"yarn workspace @node-backend/service-admin start\" \"yarn workspace @node-backend/service-partner start\"",
+    "dev:partner": "yarn workspace @node-backend/service-partner compile && concurrently --kill-others \"yarn workspace @node-backend/service-partner compile -w\" \"yarn workspace @node-backend/service-partner start\"",
+    "dev:admin": "yarn workspace @node-backend/service-admin compile && concurrently --kill-others \"yarn workspace @node-backend/service-admin compile -w\" \"yarn workspace @node-backend/service-admin start\""
   },
   "devDependencies": {
     "@types/jest": "^24.0.15",

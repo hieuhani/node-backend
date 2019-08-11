@@ -7,4 +7,12 @@
   "include": [
     "src/",
   ],
+  "references": [
+    {
+      "path": "../modules"
+    },
+    {
+      "path": "../database"
+    }
+  ]
 }

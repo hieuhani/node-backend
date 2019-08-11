@@ -10,8 +10,12 @@
     "packages/*"
   ],
   "private": true,
+  "scripts": {
+    "dev:partner": "yarn workspace @node-backend/service-partner compile && concurrently --kill-others \"yarn workspace @node-backend/service-partner compile -w\" \"yarn workspace @node-backend/service-partner start\""
+  },
   "devDependencies": {
     "@types/jest": "^24.0.15",
+    "concurrently": "^4.1.1",
     "jest": "^24.8.0",
     "ts-jest": "^24.0.2",
     "tslint": "^5.18.0",

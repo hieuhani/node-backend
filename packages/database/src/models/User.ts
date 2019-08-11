@@ -1,5 +1,6 @@
-import { Model } from 'objection';
-import bcrypt from 'bcrypt';
+import { Model } from 'objection'
+import bcrypt from 'bcrypt'
+import jwt from 'jsonwebtoken'
 
 export class User extends Model {
   readonly id!: string;
@@ -20,8 +21,8 @@ export class User extends Model {
     return Promise.resolve(maybePromise).then(() => {
       return this.generateHash(this.password).then(hash => {
         this.password = hash;
-      });
-    });
+      })
+    })
   }
 
   $beforeUpdate(queryOptions, context) {
@@ -40,8 +41,16 @@ export class User extends Model {
     });
   }
 
-  verifyPassword(password) {
+  verifyPassword(password: string) {
     return bcrypt.compare(password, this.password);
+  }
+
+  generateToken() {
+    return jwt.sign({
+      id: this.id,
+    }, 'private key', {
+        expiresIn: '1m',
+      })
   }
 
   generateHash = password => {
@@ -56,7 +65,7 @@ export class User extends Model {
     }
 
     return Promise.resolve();
-  };
+  }
 
   static isBcryptHash(str) {
     const protocol = str.split('$');

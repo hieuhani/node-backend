@@ -3,7 +3,8 @@
     "version": "1.0.0",
     "license": "MIT",
     "scripts": {
-        "start": "nodemon --watch 'src/**/*' -e ts --exec 'ts-node' src/server.ts"
+        "start": "nodemon --watch 'src/**/*' -e ts --exec 'ts-node' src/server.ts",
+        "compile": "tsc -b"
     },
     "dependencies": {
         "@node-backend/modules": "1.0.0",

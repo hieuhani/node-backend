@@ -1,5 +1,5 @@
 node_modules/
-dist
+dist/
 tsconfig.tsbuildinfo
 yarn-error.log
 yarn-debug.log

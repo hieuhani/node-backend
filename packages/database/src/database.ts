@@ -80,5 +80,5 @@ export class Database {
 
 export const database = new Database({
   client: 'pg',
-  connection: 'postgresql://hieu:password@localhost:5432/node_backend_test',
+  connection: 'postgresql://hieuhani@localhost:5432/node_backend_test',
 })

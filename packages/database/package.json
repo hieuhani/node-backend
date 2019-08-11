@@ -11,8 +11,13 @@
     },
     "dependencies": {
         "bcrypt": "^3.0.6",
+        "jsonwebtoken": "^8.5.1",
         "knex": "^0.19.0",
+        "moment": "^2.24.0",
         "objection": "^1.6.9",
         "pg": "^7.11.0"
+    },
+    "devDependencies": {
+        "timekeeper": "^2.2.0"
     }
 }

@@ -3,6 +3,18 @@ import { transaction } from 'objection'
 import { Partner, Group, Staff } from '@node-backend/database'
 
 export default {
+  Query: {
+    adminPartner: () => ({
+      async partners({ offset = 0, limit = 10 }) {
+        const edges = await Partner.query().offset(offset).limit(limit).orderBy('created_at', 'DESC')
+        const count = await Partner.query().resultSize()
+        return {
+          edges,
+          count,
+        }
+      },
+    }),
+  },
   Mutation: {
     adminPartner: () => ({
       async create({ input, ownerId }) {

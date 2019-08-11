@@ -11,6 +11,7 @@ const rootType = `
 scalar Date
 type Query {
   user: UserQuery
+  adminPartner: AdminPartnerQuery
 }
 
 type Mutation {

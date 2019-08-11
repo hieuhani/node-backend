@@ -1,6 +1,4 @@
 export default `
-
-
 type PartnerConnection {
   edges: [Partner!]!
   count: Int
